@@ -1,0 +1,184 @@
+<!-- /*
+* Template Name: Property
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="favicon.png" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Ruang Baca | Pencarian Judul Skripsi</title>
+    <style>
+      .card {
+        height: 90%;
+      }
+      .card-header,
+      .card-title,
+      .card-text {
+        text-align: center;
+      }
+      .card-header:first-child {
+        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+        background-color: #006dcc;
+        color: white;
+      }
+      .card-title {
+        color: black;
+      }
+      .white {
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icofont-close js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <a href="index.html" class="logo m-0 float-start"
+              >Universitas Muhammadiyah Makassar</a
+            >
+
+            <ul
+              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+            >
+              <li class="active"><a href="/">Home</a></li>
+              <li class="has-children">
+                <a href="#">Jurusan</a>
+                <ul class="dropdown">
+                  <li><a href="TeknikSipil.html">Teknik Sipil</a></li>
+                  <li><a href="#">Teknik Elektro</a></li>
+                  <li>
+                    <a href="TeknikArsitektur.html">Teknik Arsitektur</a>
+                  </li>
+                  <li><a href="Informatika.html">Informatika</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+
+            <a
+              href="#"
+              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="hero page-inner overlay"
+      style="background-image: url('images/hero_bg_1.jpg')"
+    >
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center mt-5">
+            <h1 class="heading" data-aos="fade-up">Teknik Elektro</h1>
+
+            <nav
+              aria-label="breadcrumb"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <ol class="breadcrumb text-center justify-content-center">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li
+                  class="breadcrumb-item active text-white-50"
+                  aria-current="page"
+                >
+                  Jurusan
+                </li>
+                <li
+                  class="breadcrumb-item active text-white-50"
+                  aria-current="page"
+                >
+                  Teknik Elektro
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="row mb-5 align-items-center"></div>
+        <div class="row gutter" id="hasil"></div>
+      </div>
+    </div>
+
+    <footer class="footer bg-primary text-white text-center py-3">
+      <p>Ruang Baca Fakultas Teknik UNISMUH 2023</p>
+    </footer>
+    <!-- /.site-footer -->
+
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/navbar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      // Ambil daftar catatan menggunakan AJAX
+      $.ajax({
+        url: "/TeknikElektro",
+        method: "GET",
+        success: function (response) {
+          console.log(response);
+          response.forEach(function (judulskripsi) {
+            var listItem = `<div class="col-md-3">
+                  <div class="card m-3">
+                    <div class="card-body">
+                      <h5 class="card-header">
+                        Nomor Registrasi:
+                        <span class="white"> ${judulskripsi.Nomor_Reg_Induk}</span>
+                      </h5>
+                      <h6 class="card-title">${judulskripsi.Judul_Skripsi}</h6>
+                      <p class="card-text">
+                        ${judulskripsi.Nama_Pengarang}<br />
+                        ${judulskripsi.Penerbit}
+                      </p>
+                    </div>
+                  </div>
+                </div>`;
+            $("#hasil").append(listItem);
+            console.log(listItem);
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="views/favicon.png" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="views/fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="views/fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="views/css/style.css" />
+
+    <title>Ruang Baca | Pencarian Judul Skripsi</title>
+    <style>
+      .card {
+        height: 90%;
+      }
+      .card-header,
+      .card-title,
+      .card-text {
+        text-align: center;
+      }
+      .card-header:first-child {
+        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+        background-color: #006dcc;
+        color: white;
+      }
+      .card-title {
+        color: black;
+      }
+      .white {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <p hidden id="scrpt_get_locals"><%= JSON.stringify(users)%></p>
+    <p hidden id="scrpt_get_local"><%= JSON.stringify(judul)%></p>
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icofont-close js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <a href="index.html" class="logo m-0 float-start"
+              >Universitas Muhammadiyah Makassar</a
+            >
+
+            <ul
+              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+            >
+              <li class="active"><a href="#">Home</a></li>
+              <li class="has-children">
+                <a href="#">Jurusan</a>
+                <ul class="dropdown">
+                  <li><a href="views/TeknikSipil.html">Teknik Sipil</a></li>
+                  <li><a href="views/TeknikElektro.html">Teknik Elektro</a></li>
+                  <li>
+                    <a href="views/TeknikArsitektur.html">Teknik Arsitektur</a>
+                  </li>
+                  <li><a href="views/Informatika.html">Informatika</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+
+            <a
+              href="#"
+              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-slide">
+        <div
+          class="img overlay"
+          style="
+            background-image: url('views/images/hero_bg_1.jpg');
+            opacity: 0.7;
+          "
+        ></div>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center">
+            <h1 class="heading" data-aos="fade-up">Pencarian Judul Skripsi</h1>
+            <form
+              action="#"
+              class="narrow-w form-search d-flex align-items-stretch mb-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <input
+                type="text"
+                class="form-control px-4"
+                name="keyword"
+                placeholder="Masukkan Teks disini"
+              />
+              <button type="submit" class="btn btn-primary" id="btnSearch">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="row mb-5 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="font-weight-bold text-primary heading">
+              Hasil Pencarian :
+            </h2>
+          </div>
+        </div>
+        <div class="row gutter"></div>
+      </div>
+    </div>
+
+    <footer class="footer bg-primary text-white text-center py-3">
+      <p>Ruang Baca Fakultas Teknik UNISMUH 2023</p>
+    </footer>
+    <!-- /.site-footer -->
+
+    <script src="views/js/script.js"></script>
+    <script src="views/js/bootstrap.bundle.min.js"></script>
+    <script src="views/js/navbar.js"></script>
+  </body>
+</html>
